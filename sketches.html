@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Russian To English Translator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+ 
+<div class="vertical-nav bg-white" id="sidebar">
+  <div class="py-4 px-3 mb-4 bg-light">
+    <div class="media d-flex align-items-center">
+      <div class="media-body">
+        <h4 class="m-0">Russian To English Translator</h4>
+        <p class="font-weight-normal text-muted mb-0"></p>
+      </div>
+    </div>
+  </div>
+
+  <p class="text-gray font-weight-bold text-uppercase px-3 small pb-4 mb-0"></p>
+
+  <ul class="nav flex-column bg-white mb-0">
+    <li class="nav-item">
+      <a href="index.html" class="nav-link text-dark bg-light">
+	            <i class="fa fa-flag-checkered mr-3 text-primary fa-fw"></i>
+                Goal of the App
+            </a>
+    </li>
+    <li class="nav-item">
+      <a href="personas.html" class="nav-link text-dark">
+	            <i class="fa fa-address-card mr-3 text-primary fa-fw"></i>
+                Personas of the End-Users
+            </a>
+    </li>
+    <li class="nav-item">
+      <a href="" id="scrollToTop" class="nav-link text-dark">
+	            <i class="fa fa-picture-o mr-3 text-primary fa-fw"></i>
+                Sketches of the App
+            </a>
+    </li>
+    <li class="nav-item">
+        <a href="critique.html" class="nav-link text-dark">
+		          <i class="fa fa-cubes mr-3 text-primary fa-fw"></i>
+                  Critique and Related Apps
+              </a>
+      </li>
+    <li class="nav-item">
+      <a href="tech.html" class="nav-link text-dark">
+	        <i class="fa fa-microchip mr-3 text-primary fa-fw"></i>
+            Technologies/Frameworks
+            </a>
+</li>
+  </ul>
+
+</div>
+<!-- End vertical navbar -->
+
+<div class="page-content p-5" id="content">
+  <!-- Menu button -->
+  <button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold">Menu</small></button>
+
+  <!--Content -->
+  <h2 class="display-4 text-white">Sketches of the App</h2>
+  <p class="lead text-white mb-0"></p> 
+  <div class="separator"></div>
+  <div class="row text-white">
+      <div class="col-lg-7">
+        <p class="lead">Sketch 1 depicts the loading page, which is the app's main opening view after the user launches it; it includes user-friendly design elements such as the logo and name.</p>
+        <ol class="lead">
+          <li>When a user enters the app and clicks, the loading page appears for a fraction of a second before jumping to the landing page.</li>
+        </ol> 
+      </div>
+        <div class="col-lg-4 text-center">
+        <img class="img-responsive" style="width:75%; height:100%" src="images/LoadingPage.png">
+        </div>
+    <div class="col-lg-7 ">
+      <p class="lead">Sketch 2 represents the landing page, where the majority of the app's interaction with the user will take place.</p>
+      <ol class="lead">
+        <li>The user will see two languages, Russian and English, from which they can translate the text and convert English to Russian depending on their preference.</li>
+		<li>A voice feature will be added to provide definitive responses from text to speech for a more user-friendly experience, assisting in converting Russian texts from English into an automated voice function that will be able to voice out the words in the text to the user in speech.</li>
+		</ol>
+      </div>
+      <div class="col-lg-4 text-center">
+      <img class="img-responsive" style="width:75%; height:100%" src="images/LandingPage.png">
+      </div>
+      <div class="col-lg-7">
+        <p class="lead">Sketch 3 is a continuation of Sketch 2 and will depict the same interaction between the user, but this time in the opposite direction, with English to Russian instead of Russian to English.</p>
+        <ol class="lead">
+          <li>In Sketch 2, the user can translate from Russian to English. However, the opposite can be done, such as allowing users to convert English to Russian alongside the voice feature.</li>
+        </ol>
+        </div>
+        <div class="col-lg-4 text-center">
+        <img class="img-responsive" style="width:75%; height:100%" src="images/LandingPage2.png">
+        </div>  
+        <div class="col-lg-7">
+          <p class="lead">Sketch 4 depicts the "Favourites" screen, where all of the user's selected interactions will be saved for later viewing if the user so chooses.</p>
+          <ol class="lead">
+            <li>If the user translates 4 texts from Russian to English, it will allow the user to select all or a few selected 2-3 texts by clicking on the heart shaped icon displayed near the translate box in Sketches 2 and 3 as previously described on the top right corner edge where the user can favourite the text and close the app to return to it later to review the text the user converted will be saved.</li>
+			<li>If there are number of texts then the user is also able to utillize the use of scrollbar to scroll up and down.</li>
+          </ol>
+          </div>
+          <div class="col-lg-4 text-center">
+          <img class="img-responsive" style="width:75%; height:100%" src="images/Favourites Screen 1.png">
+          </div>  
+          <div class="col-lg-7">
+            <p class="lead">Sketch 5 depicts the "Favourites" deletion screen, where the app interaction, which included the text marked as "Favourites," can be deleted by selecting the text.</p>
+            <ol class="lead">
+              <li>The user will be able to select and delete favourites based on which ones are required to be kept and which are not.</li>
+              <li>If the user wishes to delete the selected "Favourites," the user may do so by clicking the "Edit" button. Once clicked, the user will be shown crossbars in red, which allow the user to delete all at once or delete a few and keep the rest.</li>
+			  <li>When the user deletes the favourites, the app will alert the user stating "Are you sure you want to delete? Yes or No "whether the user wishes to delete or not.</li>
+            </ol>
+            </div>
+            <div class="col-lg-4 text-center">
+            <img class="img-responsive" style="width:75%; height:100%" src="images/FavouritesDeletion Screen 2.png">
+            </div> 
+            <div class="col-lg-7">
+              <p class="lead">Sketch 6 depicts the "History" screen, which will save the user's entire text history if the user does not want to lose important text.</p>
+              <ol class="lead">
+                <li>If the user wants to keep all of the translated conversions they will be kept in history.</li>
+                <li>If the user wants to view the previous texts, the user may do so by checking the history.</li>
+                <li>To check history the user will click on the navigation menu bar below the screen to click on the history button to see the previous texts.</li>
+              </ol> 
+            </div>
+              <div class="col-lg-4 text-center">
+              <img class="img-responsive" style="width:75%; height:100%" src="images/History Screen 1.png">
+              </div>   
+              <div class="col-lg-7">
+                <p class="lead">The "History" deletion screen, seen in Sketch 7, shows how all previous text messages are stored. If the user chooses, the user can choose to keep or erase the whole text history.</p>
+                <ol class="lead">
+                  <li>Depending on which entries must be retained and which may be deleted, the user will be able to choose and delete history.</li>
+                  <li>Clicking the "Edit" button will allow the user to remove the selected "History" if they so want. When the user clicks, red crossbars will appear, giving the option to delete everything at once or select a small number of texts to remove while keeping the rest.</li>
+				  <li>Upon deletion of the history the app will send the user a alert stating "Are you sure you want to delete? Yes or No" whether the user wants to delete or not.</li>
+                </ol> 
+              </div>
+                <div class="col-lg-4 text-center">
+                <img class="img-responsive" style="width:75%; height:100%" src="images/HistoryDeletion Screen 2.png">
+                </div>
+	            <div class="col-lg-7">
+	              <p class="lead">When the user clicks on the gear icon in Sketch 8, the user will be taken to the "Settings" screen. This screen shows settings for maintaining history, rating the application, and additional current-related apps.</p>
+	              <ol class="lead">
+	                <li>A button that the user can switch on or off to store or not save history will be visible on the settings screen.</li>
+	                <li>Few more buttons will be shown to the user, 2 more to be precise to either rate the app or see apps related to the current one.</li>
+	              </ol> 
+	            </div>
+	              <div class="col-lg-4 text-center">
+	              <img class="img-responsive" style="width:75%; height:100%" src="images/Settings End Screen.png">
+	              </div>
+    </div>
+<!-- End of content -->
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
+
