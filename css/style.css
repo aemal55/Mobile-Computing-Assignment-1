@@ -1,6 +1,6 @@
 body {
-  background: #171717;
-  background-image:  linear-gradient(110.3deg, rgb(238, 179, 123) 8.7%, rgb(216, 103, 77) 47.5%, rgb(114, 43, 54) 89.1%);
+  background: #00FF00;
+  background-image:  linear-gradient(114.3deg, rgb(19, 126, 57) 0.2%, rgb(8, 65, 91) 68.5%);
   min-height: 100vh;
   overflow-x: hidden;
 }
@@ -31,23 +31,23 @@ body {
 
 .separator {
   margin: 3rem 0;
-  border-bottom: 1px dashed #171717;
+  border-bottom: 1px dashed #00FF00;
 }
 
 .text-uppercase {
   letter-spacing: 0.1em;
 }
 .text-gray {
-  color: #171717;
+  color: #00FF00;
 }
 .nav-link{
     text-transform: capitalize;
 }
 .nav-link:hover{
-    background:#FDB750;
+    background:#00FF00;
 }
 .text-primary{
-    color:#000000 !important;
+    color:#006400 !important;
 }
 @media (max-width: 768px) {
   #sidebar {
