@@ -1,6 +1,6 @@
 body {
-  background: #800000;
-  background-image:  linear-gradient(109.6deg, rgb(0, 0, 0) 11.2%, rgb(247, 30, 30) 100.3%);
+  background: #171717;
+  background-image:  linear-gradient(110.3deg, rgb(238, 179, 123) 8.7%, rgb(216, 103, 77) 47.5%, rgb(114, 43, 54) 89.1%);
   min-height: 100vh;
   overflow-x: hidden;
 }
@@ -31,23 +31,23 @@ body {
 
 .separator {
   margin: 3rem 0;
-  border-bottom: 1px dashed #800000;
+  border-bottom: 1px dashed #171717;
 }
 
 .text-uppercase {
   letter-spacing: 0.1em;
 }
 .text-gray {
-  color: #800000;
+  color: #171717;
 }
 .nav-link{
     text-transform: capitalize;
 }
 .nav-link:hover{
-    background:#800000;
+    background:#FDB750;
 }
 .text-primary{
-    color:#800000 !important;
+    color:#000000 !important;
 }
 @media (max-width: 768px) {
   #sidebar {
