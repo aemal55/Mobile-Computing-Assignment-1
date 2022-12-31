@@ -1,9 +1,9 @@
 import { StyleSheet, Text, View } from 'react-native';
 
-export default function SettingsScreen() {
+export default function SavedScreen() {
   return (
     <View style={styles.container}>
-      <Text>Settings screen</Text>
+      <Text>Saved screen</Text>
     </View>
   );
 }

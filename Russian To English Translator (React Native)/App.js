@@ -1,15 +1,28 @@
+import 'react-native-gesture-handler'
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import { NavigationProvider } from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import HomeScreen from './screens/HomeScreen';
 
+const Stack = createStackNavigator();
 export default function App() {
   return (
-  <NavigationProvider>
-    <View style={styles.container}>
-      <Text>Russian To English Translate</Text>
-      <StatusBar style="auto" />
+  <NavigationContainer>
+    <View> style= {{ flex: 1 }}
+      <Stack.Navigator>
+        <Stack.Group>
+          <Stack.Screen 
+          name="Home"
+          component={HomeScreen}
+          options={{
+             headerTitle: "Translate"
+          }}
+          />
+        </Stack.Group>
+      </Stack.Navigator>
     </View>
-    </NavigationProvider>
+    </NavigationContainer>
   );
 }
 
