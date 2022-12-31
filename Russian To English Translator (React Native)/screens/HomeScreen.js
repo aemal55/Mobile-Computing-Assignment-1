@@ -1,9 +1,13 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { Button, ProgressViewIOSComponent, StyleSheet, Text, View } from 'react-native';
 
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
       <Text>Translate</Text>
+
+      <Button title='Enter Text' onPress={() => {
+          Props.navigation.navigate("Settings screen")
+      }} />
     </View>
   );
 }
