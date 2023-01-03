@@ -12,7 +12,7 @@ export default function HomeScreen() {
       <View style={styles.LanguageContainer}>
           <TouchableOpacity>
               styles={styles.LanguageOption}
-              onPress={()  => props.navigation.navigate("LanguageSelect")}
+              onPress={()  => props.navigation.navigate("LanguageSelect", {title: "Translate from"} )}
               <Text style={styles.LanguageOptionText}>English</Text>
           </TouchableOpacity>
 
@@ -22,7 +22,7 @@ export default function HomeScreen() {
 
           <TouchableOpacity>
               styles={styles.LanguageOption}
-              onPress={()  => console.log("Pressed")}
+              onPress={()  => props.navigation.navigate("LanguageSelect", {title: "Translate to"} )}
               <Text style={styles.LanguageOptionText}>Russian</Text>
           </TouchableOpacity>
       </View>

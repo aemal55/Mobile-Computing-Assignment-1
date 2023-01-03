@@ -131,7 +131,14 @@ export default function App() {
 
             <Stack.Group
               screenOptions={{
-                presentation: 'containedModel'
+                presentation: 'containedModel',
+                headerStyle: {
+                  backgroundColor: 'white'
+                },
+                headerTitleStyle: {
+                  color: colors.textColor,
+                  fontFamily: 'medium'
+                }
               }}
             >
               <Stack.Screen

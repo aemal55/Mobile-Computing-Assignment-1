@@ -1,6 +1,35 @@
+import { useEffect } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { HeaderButton, HeaderButtons } from 'react-navigation-header-buttons';
+import colors from '../utils/colors';
 
-export default function LanguageSelectScreen() {
+const CustomHeaderButton = props => {
+    return <HeaderButton
+              { ...props }
+              IconComponent={Ionicons}
+              iconSize={23}
+              color={props.color || colors.primary}
+            />
+}
+
+export default function LanguageSelectScreen({ navigation, route }) { 
+    const params = route.params || {};
+    const { title, selected } = params;
+    useEffect(() => {
+      navigation.setOptions({
+        headerTitle: title,
+        headerRight: () => (
+          <HeaderButtons HeaderButtonComponent={CustomHeaderButton}>
+            <Item
+              iconName="close"
+              color={colors.textColor}
+              onPress={() => navigation.goBack()}
+              />
+          </HeaderButtons>
+     )
+    })
+  }, [navigation]);
+
   return (
     <View style={styles.container}>
       <Text>Language select screen</Text>
