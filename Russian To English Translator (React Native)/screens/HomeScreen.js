@@ -12,7 +12,7 @@ export default function HomeScreen() {
       <View style={styles.LanguageContainer}>
           <TouchableOpacity>
               styles={styles.LanguageOption}
-              onPress={()  => console.log("Pressed")}
+              onPress={()  => props.navigation.navigate("LanguageSelect")}
               <Text style={styles.LanguageOptionText}>English</Text>
           </TouchableOpacity>
 
@@ -56,6 +56,10 @@ export default function HomeScreen() {
            size={24} 
            color={resultText !=="" ? colors.textColor : colors.textColorDisabled} />
        </TouchableOpacity>  
+      </View>
+
+      <View style={styles.historyContainer}>
+
       </View>
     </View>
   );
@@ -120,6 +124,12 @@ const styles = StyleSheet.create({
     color: colors.primary,
     flex: 1,
     marginHorizontal: 20
+  },
+  historyContainer: {
+    backgroundColor: colors.greyBackground,
+    flex: 1,
+    padding: 10,
+
   }
   
 });

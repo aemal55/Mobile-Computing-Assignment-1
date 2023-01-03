@@ -128,6 +128,17 @@ export default function App() {
                 }}
               />
             </Stack.Group>
+
+            <Stack.Group
+              screenOptions={{
+                presentation: 'containedModel'
+              }}
+            >
+              <Stack.Screen
+                name="LanguageSelect"
+                component={LanguageSelectScreen}
+              />
+            </Stack.Group>
             </Stack.Navigator>
         </View>
       </NavigationContainer>
