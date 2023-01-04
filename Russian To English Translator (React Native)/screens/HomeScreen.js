@@ -4,6 +4,8 @@ import colors from '../utils/colors';
 import { useCallback, useEffect, useState } from 'react';
 import supportedLanguages from '../utils/supportedLanguages';
 import { translate } from '../utils/translate';
+import * as Clipboard from 'expo-clipboard';
+
 
 
 
@@ -53,6 +55,10 @@ export default function HomeScreen(props) {
       }
 
   }, [enteredText, languageTo, languageFrom, dispatch]);
+
+  const copyToClipboard = useCallback(async () => {
+      await Clipboard.setStringAsync(resultText);
+  },  [resultText]);
 
 
 
