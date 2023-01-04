@@ -2,7 +2,6 @@ import 'react-native-gesture-handler';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/stack';
 import HomeScreen from './screens/HomeScreen';
 import SettingsScreen from './screens/SettingsScreen';
 import SavedScreen from './screens/SavedScreen';
@@ -13,7 +12,9 @@ import * as SplashScreen from 'expo-splash-screen';
 import { useCallback, useEffect, useState } from 'react';
 import * as Font from 'expo-font';
 import colors from './utils/colors';
-
+import { createNativeStackNavigator } from '@react-navigation/stack';
+import { Provider } from 'react-redux';
+import store from './store/store';
 
 SplashScreen.preventAutoHideAsync();
 

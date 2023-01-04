@@ -5,12 +5,16 @@ import { useCallback, useEffect, useState } from 'react';
 import supportedLanguages from '../utils/supportedLanguages';
 import { translate } from '../utils/translate';
 import * as Clipboard from 'expo-clipboard';
-
-
-
+import { useDispatch, useSelector } from 'react-redux';
+import { addHistoryItem } from '../store/historySlice';
+import TranslationResult from '../components/TranslationResult';
+import uuid from 'react-native-uuid';
 
 export default function HomeScreen(props) {
     const params = props.route.params || {};
+
+    const dispatch = useDispatch();
+    const history = useSelector(state.history.items);
 
     const [enteredText, setEnteredText] = useState("");
     const [resultText, setResultText] = useState("");
