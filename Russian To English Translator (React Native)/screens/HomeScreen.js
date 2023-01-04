@@ -3,6 +3,7 @@ import { AntDesign, Ionicons } from '@expo/vector-icons';
 import colors from '../utils/colors';
 import { useCallback, useEffect, useState } from 'react';
 import supportedLanguages from '../utils/supportedLanguages';
+import { translate } from '../utils/translate';
 
 
 
@@ -24,6 +25,36 @@ export default function HomeScreen(props) {
             setLanguageFrom(params.languageFrom);
         }
     }, [params.languageTo, params.languageFrom]);
+
+    const onSubmit = useCallback(async () => {
+
+      try {
+          setIsLoading(true);
+          const result = await translate(enteredText, languageFrom, languageTo);
+
+          if (!result) {
+              setResultText("");
+              return;
+          }
+
+          const textResult = result.translated_text[result.to];
+          setResultText(textResult);
+
+          const id = uuid.v4();
+          result.id = id;
+          result.dateTime = new Date().toISOString();
+
+          dispatch(addHistoryItem({ item: result }));
+      } catch (error) {
+          console.log(error);
+      }
+      finally {
+          setIsLoading(false);
+      }
+
+  }, [enteredText, languageTo, languageFrom, dispatch]);
+
+
 
   return (
       <View style={styles.container}>
@@ -58,6 +89,15 @@ export default function HomeScreen(props) {
                 onPress={isLoading ? undefined : onSubmit}
                 disabled={enteredText === ""}
                 style={styles.iconContainer}>
+
+                {
+                    isLoading ?
+                    <ActivityIndicator size={'small'} color={colors.primary} /> :
+                    <Ionicons 
+                        name="arrow-redo-circle-sharp"
+                        size={24} 
+                        color={enteredText !== "" ? colors.primary : colors.primaryDisabled} />
+                }
 
                 {
                     isLoading ?
