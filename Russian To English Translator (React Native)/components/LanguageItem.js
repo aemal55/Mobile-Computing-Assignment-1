@@ -1,5 +1,5 @@
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native"
-import { Feather } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
 import colors from "../utils/colors";
 
 export default LanguageItem = props => {
@@ -10,7 +10,7 @@ export default LanguageItem = props => {
         <View style={styles.iconContainer}>
             {
                 props.selected &&
-                <Feather name="check" size={18} color={colors.textColor} />
+                <Ionicons name="ios-checkmark" size={18} color={colors.textColor} />
             }
         </View>
 

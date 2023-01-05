@@ -1,16 +1,42 @@
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native"
 import { AntDesign } from '@expo/vector-icons';
 import colors from "../utils/colors";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useCallback } from "react";
+import { setSavedItems } from "../store/savedItemsSlice";
 
 export default TranslationResult = props => {
+    const dispatch = useDispatch();
 
     const { itemId } = props;
-    const item = useSelector(state => state.history.items.find(item => item.id === itemId));
+    const item = useSelector(state => {
+        return state.history.items.find(item => item.id === itemId) ||
+            state.savedItems.items.find(item => item.id === itemId)
+    });
+    const savedItems = useSelector(state => state.savedItems.items);
+
+    const isSaved = savedItems.some(i => i.id === itemId);
+    const heartIcon = isSaved ? "heart" : "heart-outlined";
+
+    const heartItem = useCallback(async () => {
+        let newSavedItems;
+
+        if (isSaved) {
+            newSavedItems = savedItems.filter(i => i.id !== itemId);
+        }
+        else {
+            newSavedItems = savedItems.slice();
+            newSavedItems.push(item);
+        }
+
+        
+
+        dispatch(setSavedItems({ items: newSavedItems }));
+    }, [dispatch, savedItems]);
 
     return <View style={styles.container}>
 
-    <View style={styles.textContainer}>
+        <View style={styles.textContainer}>
             <Text
                 numberOfLines={4}
                 style={styles.title}>{item.original_text}</Text>
@@ -57,5 +83,4 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center'
     }
-
 })
