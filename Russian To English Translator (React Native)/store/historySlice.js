@@ -13,10 +13,12 @@ export const historySlice = createSlice({
                 state.items.push(item);
             }
 
-            console.log(state.items)
+        },
+        setHistoryItems: (state, action) => {
+            state.items = action.payload.items;
         }
     }
 });
 
-export const { addHistoryItems } = historySlice.actions;
+export const { addHistoryItems, setHistoryItems } = historySlice.actions;
 export default historySlice.reducer;

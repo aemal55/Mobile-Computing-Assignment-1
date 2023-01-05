@@ -6,15 +6,37 @@ import supportedLanguages from '../utils/supportedLanguages';
 import { translate } from '../utils/translate';
 import * as Clipboard from 'expo-clipboard';
 import { useDispatch, useSelector } from 'react-redux';
-import { addHistoryItem } from '../store/historySlice';
+import { addHistoryItem, setHistoryItems } from '../store/historySlice';
 import TranslationResult from '../components/TranslationResult';
 import uuid from 'react-native-uuid';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { setSavedItems } from '../store/savedItemsSlice';
+
+const loadData = () => {
+    return async dispatch => {
+        try {
+            const historyString = await AsyncStorage.getItem('history');
+            if (historyString !== null) {
+                const history = JSON.parse(historyString);
+                dispatch(setHistoryItems({ items: history }));
+            }
+
+            const savedItemsString = await AsyncStorage.getItem('savedItems');
+            if (savedItemsString !== null) {
+                const savedItems = JSON.parse(savedItemsString);
+                dispatch(setSavedItems({ items: savedItems }));
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
+}
 
 export default function HomeScreen(props) {
     const params = props.route.params || {};
 
     const dispatch = useDispatch();
-    const history = useSelector(state.history.items);
+    const history = useSelector(state => state.history.items);
 
     const [enteredText, setEnteredText] = useState("");
     const [resultText, setResultText] = useState("");
@@ -32,39 +54,54 @@ export default function HomeScreen(props) {
         }
     }, [params.languageTo, params.languageFrom]);
 
+
+    useEffect(() => {
+        dispatch(loadData());
+    }, [dispatch]);
+
+    useEffect(() => {
+        const saveHistory = async () => {
+            try {
+                await AsyncStorage.setItem('history', JSON.stringify(history));
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
+        saveHistory();
+    }, [history]);
+
     const onSubmit = useCallback(async () => {
 
-      try {
-          setIsLoading(true);
-          const result = await translate(enteredText, languageFrom, languageTo);
+        try {
+            setIsLoading(true);
+            const result = await translate(enteredText, languageFrom, languageTo);
 
-          if (!result) {
-              setResultText("");
-              return;
-          }
+            if (!result) {
+                setResultText("");
+                return;
+            }
 
-          const textResult = result.translated_text[result.to];
-          setResultText(textResult);
+            const textResult = result.translated_text[result.to];
+            setResultText(textResult);
 
-          const id = uuid.v4();
-          result.id = id;
-          result.dateTime = new Date().toISOString();
+            const id = uuid.v4();
+            result.id = id;
+            result.dateTime = new Date().toISOString();
 
-          dispatch(addHistoryItem({ item: result }));
-      } catch (error) {
-          console.log(error);
-      }
-      finally {
-          setIsLoading(false);
-      }
+            dispatch(addHistoryItem({ item: result }));
+        } catch (error) {
+            console.log(error);
+        }
+        finally {
+            setIsLoading(false);
+        }
 
-  }, [enteredText, languageTo, languageFrom, dispatch]);
+    }, [enteredText, languageTo, languageFrom, dispatch]);
 
-  const copyToClipboard = useCallback(async () => {
-      await Clipboard.setStringAsync(resultText);
-  },  [resultText]);
-
-
+    const copyToClipboard = useCallback(async () => {
+        await Clipboard.setStringAsync(resultText);
+    }, [resultText]);
 
   return (
       <View style={styles.container}>
@@ -99,15 +136,6 @@ export default function HomeScreen(props) {
                 onPress={isLoading ? undefined : onSubmit}
                 disabled={enteredText === ""}
                 style={styles.iconContainer}>
-
-                {
-                    isLoading ?
-                    <ActivityIndicator size={'small'} color={colors.primary} /> :
-                    <Ionicons 
-                        name="arrow-redo-circle-sharp"
-                        size={24} 
-                        color={enteredText !== "" ? colors.primary : colors.primaryDisabled} />
-                }
 
                 {
                     isLoading ?
