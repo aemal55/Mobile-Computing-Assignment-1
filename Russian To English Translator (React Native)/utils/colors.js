@@ -7,5 +7,4 @@ export default {
     greyBackground: '#131313',
     subTextColor: '#131313'
 
-
 }

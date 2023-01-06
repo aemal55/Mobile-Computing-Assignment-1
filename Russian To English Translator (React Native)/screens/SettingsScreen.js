@@ -1,9 +1,10 @@
 import { StyleSheet, Text, View } from 'react-native';
+import colors from '../utils/colors';
 
 export default function SettingsScreen() {
   return (
     <View style={styles.container}>
-      <Text>Settings screen</Text>
+      
     </View>
   );
 }
@@ -11,8 +12,7 @@ export default function SettingsScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: colors.greyBackground,
+    padding: 10
   },
 });
